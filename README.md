@@ -1,4 +1,4 @@
-#D3QN
+# D3QN
 Here you can find a D3QN (Duelling Double DQN with prioritized experience replay) algorithm implementation for the Gymnasium CartPole-v1 environment.
 
 To train, run:

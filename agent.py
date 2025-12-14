@@ -14,7 +14,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 
 class DuellingDDQN:
-    def __init__(self, model, optimizer, device=None):
+    def __init__(self, model, optimizer=None, device=None):
         if device is None:
             self.device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
         else:
@@ -52,6 +52,20 @@ class DuellingDDQN:
         else:
             with torch.no_grad():
                 return self.model(state.to(self.device).unsqueeze(0)).argmax().item()
+
+    def test(self, env):
+        state, _ = env.reset()
+        self.eps = 0
+        done = False
+
+        while not done:
+            action = self.get_action(state)
+            next_state, reward, done, truncated, _ = env.step(action)
+
+            done = done or truncated
+            state = next_state
+
+        env.close()
 
     def train(self, env, num_epochs):
 

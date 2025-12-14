@@ -4,7 +4,7 @@ from torch import optim
 import gymnasium as gym
 import ale_py
 
-from utils import make_lunar_env as make_env
+from utils import make_cartpole_env as make_env
 from agent import DuellingDDQN
 from net import Net
 

@@ -4,6 +4,7 @@ Here you can find a D3QN (Duelling Double DQN with prioritized experience replay
 To train, run:
   pip install -r requirements.txt
   python train.py
+
 To test the model, run:
   python test.py
 

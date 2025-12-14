@@ -1,0 +1,5 @@
+torch
+tensorboard
+numpy~=2.0.1
+gymnasium~=1.2.2
+tqdm~=4.67.1
